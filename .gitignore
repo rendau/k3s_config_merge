@@ -1,0 +1,30 @@
+# Игнорировать временные файлы редакторов и систем
+*.swp
+*.bak
+*.tmp
+*.log
+.idea
+.DS_Store
+.vscode
+*.iml
+*.orig
+
+# Temporary files created by Helm/Tiller
+chart.lock
+tmpcharts/
+
+# Артефакты, которые создаются при использовании "helm package"
+*.tgz
+
+# Игнорировать файлы ChartMuseum или другого локального репо
+index.yaml
+
+# Файлы, в которых могут содержаться локальные конфигурации
+main/values.yaml
+local_values.yaml
+secrets.yaml
+.env
+*.env
+
+merged_config.yaml
+temp_config.yaml
