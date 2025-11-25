@@ -67,10 +67,10 @@ else
   cp "$TEMP_CONFIG" "$MERGED_CONFIG"
 fi
 
-#echo ">>> Обновляю kubeconfig..."
-#mv "$MERGED_CONFIG" "$LOCAL_CONFIG"
-#
-#echo ">>> Устанавливаю контекст $CONTEXT_NAME по умолчанию"
-#kubectl config use-context "$CONTEXT_NAME"
+echo ">>> Обновляю kubeconfig..."
+mv "$MERGED_CONFIG" "$LOCAL_CONFIG"
+
+echo ">>> Устанавливаю контекст $CONTEXT_NAME по умолчанию"
+kubectl config use-context "$CONTEXT_NAME"
 
 echo ">>> Готово."
