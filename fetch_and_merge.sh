@@ -23,7 +23,6 @@ REMOTE_PATH="/etc/rancher/k3s/k3s.yaml"
 
 KUBECONFIG_DIR="$HOME/.kube"
 LOCAL_CONFIG="$KUBECONFIG_DIR/config"
-BACKUP_CONFIG="$KUBECONFIG_DIR/config_prev"
 TEMP_CONFIG="./temp_config.yaml"
 MERGED_CONFIG="./merged_config.yaml"
 
@@ -54,11 +53,6 @@ yq -i "
   .contexts[0].context.cluster = \"$CONTEXT_NAME\" |
   .contexts[0].context.user = \"$CONTEXT_NAME\"
 " "$TEMP_CONFIG"
-
-echo ">>> Делаю бэкап существующего kubeconfig -> $BACKUP_CONFIG"
-if [ -f "$LOCAL_CONFIG" ]; then
-  cp "$LOCAL_CONFIG" "$BACKUP_CONFIG"
-fi
 
 echo ">>> Мерджу kubeconfig..."
 if [ -f "$LOCAL_CONFIG" ]; then
